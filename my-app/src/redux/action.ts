@@ -6,7 +6,7 @@ import {
   productActionsTypes,
   productAddToFavActionsTypes,
 } from "./actionType";
-
+import swal from "sweetalert";
 //product Fetch Request function
 let tokenStr =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudXVqc2hhcm1hOTZAZ21haWwuY29tIiwiZ2l0aHViIjoiaHR0cHM6Ly9naXRodWIuY29tL0FudWpzaGFybWE1MSIsImlhdCI6MTY2Mzk1ODc3NiwiZXhwIjoxNjY0MzkwNzc2fQ.ZLON39trxuyOMuuIyiC0fXnqA46GRlfq_7MSP_8h5BI";
@@ -61,7 +61,7 @@ export const productCreateSuccess = (payload: {}) => ({
   payload,
 });
 
-export const AddToNewProduct = (data: Object) => (dispatch: Function) => {
+export const AddToNewProduct = (data: Object,navigate:any) => (dispatch: Function) => {
   console.log("data:", data);
 
   let tokenStr =
@@ -74,7 +74,9 @@ export const AddToNewProduct = (data: Object) => (dispatch: Function) => {
       },
     })
     .then((response) => {
-      console.log("response:", response);
+      swal("Added!", "Your Product has been added ", "success");
+      navigate("/")
+      // console.log("response:", response);
     });
 
   //   dispatch(productCreateSuccess(el));

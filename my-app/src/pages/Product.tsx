@@ -12,7 +12,7 @@ import {  Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { AddToFavorite } from '../redux/action';
 import { useNavigate } from 'react-router-dom';
-
+import swal from "sweetalert";
 
 const Product = (props:any) => {
 
@@ -23,7 +23,7 @@ const {el} =props.value
   const handleClick = (e: any, el: Object) => {
     e.stopPropagation()
     setDone((prv) => !prv)
-
+swal("Added!", "Your Product has been added favorite list ", "success");
     dispatch(AddToFavorite(el))
   }
   

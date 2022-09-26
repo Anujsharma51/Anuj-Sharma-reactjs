@@ -22,7 +22,7 @@ const CreateProduct = () => {
   const handleSubmit = (e:any) => {
     e.preventDefault();
 
-   dispatch(AddToNewProduct(x))
+   dispatch(AddToNewProduct(x,navigate))
   };
   return (
     <div>
